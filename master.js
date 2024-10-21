@@ -29,7 +29,6 @@ function updateScores() {
     const scoreA = getVariable('scoreA');
     const scoreB = getVariable('scoreB');
     const total = scoreB - scoreA;
-    
     fetch('1OqFRvrHCz2vShSJlN6mUinyvCSXZQ5icECOoq1spqzE', {
         method: 'POST',
         headers: {
