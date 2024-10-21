@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>team a<title>
+    <title>Team A</title>
     <script src="master.js"></script>
 </head>
 <body>
-    <h1>team A</h1>
-    <button onclick="incrementScoreA()">Increment Score A</button>
+    <h1>Team A</h1>
+    <p>Score A: <span id="scoreA"></span></p>
     <p>Total Score: <span id="total"></span></p>
     <p id="winner"></p>
 
     <script>
-        function incrementScoreA() {
+        function updateScoreA() {
             let scoreA = getVariable('scoreA');
             scoreA--;
             setVariable('scoreA', scoreA);
@@ -21,9 +21,10 @@
             updateScores();
         }
 
-        // Display the initial score
-        document.getElementById('scoreA').textContent = getVariable('scoreA');
+        // Update the score and display the initial score on page load
+        updateScoreA();
     </script>
 </body>
 </html>
+
 
