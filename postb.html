@@ -1,28 +1,30 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>team b<title>
+    <title>Team B</title>
     <script src="master.js"></script>
 </head>
 <body>
-    <h1>team B</h1>
-    <button onclick="incrementScoreA()">Increment Score B</button>
+    <h1>Team B</h1>
+    <p>Score B: <span id="scoreB"></span></p>
     <p>Total Score: <span id="total"></span></p>
     <p id="winner"></p>
 
     <script>
-        function incrementScoreA() {
+        function updateScoreB() {
             let scoreB = getVariable('scoreB');
             scoreB++;
             setVariable('scoreB', scoreB);
-            document.getElementById('scoreB').textContent = scoreA;
+            document.getElementById('scoreB').textContent = scoreB;
             updateScores();
         }
 
-        // Display the initial score
-        document.getElementById('scoreB').textContent = getVariable('scoreB');
+        // Update the score and display the initial score on page load
+        updateScoreB();
     </script>
 </body>
 </html>
+
 
