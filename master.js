@@ -29,7 +29,7 @@ function updateScores() {
     const scoreB = getVariable('scoreB');
     const total = scoreB - scoreA;
     
-    fetch('YOUR_WEB_APP_URL', {
+    fetch('https://script.google.com/macros/s/AKfycbxj_QIHFQ5Cxs0Bdq6m9VUyxrYPNgBBMMOaV1wfxf52EDvN9cHSfX_LXsNO9I5qgcH-/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
