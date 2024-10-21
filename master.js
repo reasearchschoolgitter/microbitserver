@@ -28,6 +28,27 @@ function updateScores() {
     const scoreA = getVariable('scoreA');
     const scoreB = getVariable('scoreB');
     const total = scoreB - scoreA;
+    
+    fetch('YOUR_WEB_APP_URL', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({teamAScore: scoreA, teamBScore: scoreB})
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Update your scores here
+        console.log('Scores updated:', data);
+        const totalScore = data.totalScore;
+        document.getElementById('totalScore').textContent = totalScore;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+</script>
+
 
     // Update the total score in the simulated JSON
     setTotalScore(total);
