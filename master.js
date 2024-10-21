@@ -27,7 +27,7 @@ function setVariable(key, value) {
 function updateScores() {
     const scoreA = getVariable('scoreA');
     const scoreB = getVariable('scoreB');
-    const total = scoreA - scoreB;
+    const total = scoreB - scoreA;
 
     // Update the total score in the simulated JSON
     setTotalScore(total);
