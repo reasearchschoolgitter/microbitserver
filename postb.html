@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>team b</title>
+</head>
+<body>
+    <h1>team b score:<span id="counter"></span></h1>
+
+    <script>
+        // Retrieve the current count from local storage, or start at 0 if not set
+        let count = localStorage.getItem('page_refresh_count') || 0;
+
+        // Decrement the count
+        count--;
+
+        // Store the new count back in local storage
+        localStorage.setItem('page_refresh_count', count);
+
+        // Display the count
+        document.getElementById('counter').textContent = count;
+    </script>
+</body>
+</html>
