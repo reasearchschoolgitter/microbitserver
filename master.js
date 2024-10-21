@@ -53,3 +53,5 @@ if (localStorage.getItem('scoreB') === null) {
 // Update scores on page load
 window.onload = updateScores;
 
+// i reset the page
+
