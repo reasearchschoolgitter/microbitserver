@@ -19,9 +19,9 @@ function updateScores() {
 
     // Check for a winner
     if (total <= -100) {
-        document.getElementById('winner').textContent = 'Page A wins!';
+        document.getElementById('winner').textContent = 'Team A wins!';
     } else if (total >= 100) {
-        document.getElementById('winner').textContent = 'Page B wins!';
+        document.getElementById('winner').textContent = 'Team B wins!';
     } else {
         document.getElementById('winner').textContent = '';
     }
