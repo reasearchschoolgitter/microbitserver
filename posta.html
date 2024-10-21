@@ -9,7 +9,6 @@
 <body>
     <h1>Team A</h1>
     <p>Score A: <span id="scoreA"></span></p>
-    <p>Total Score: <span id="total"></span></p>
     <p id="winner"></p>
 
     <script>
@@ -21,10 +20,9 @@
             updateScores();
         }
 
-        // Update the score and display the initial score on page load
-        updateScoreA();
+        // Update score on page load
+        window.onload = updateScoreA;
     </script>
 </body>
 </html>
-
 
