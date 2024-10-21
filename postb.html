@@ -1,26 +1,28 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>team b</title>
-    <script src="master.js">
+    <title>team b<title>
+    <script src="master.js"></script>
 </head>
 <body>
-    <h1>team b score:<span id="counter"></span></h1>
+    <h1>team B</h1>
+    <button onclick="incrementScoreA()">Increment Score B</button>
+    <p>Total Score: <span id="total"></span></p>
+    <p id="winner"></p>
 
     <script>
-        // Retrieve the current count from local storage, or start at 0 if not set
-        let count = localStorage.getItem('page_refresh_count') || 0;
+        function incrementScoreA() {
+            let scoreB = getVariable('scoreB');
+            scoreB++;
+            setVariable('scoreB', scoreB);
+            document.getElementById('scoreB').textContent = scoreA;
+            updateScores();
+        }
 
-        // Decrement the count
-        count++;
-
-        // Store the new count back in local storage
-        localStorage.setItem('page_refresh_count', count);
-
-        // Display the count
-        document.getElementById('counter').textContent = count;
+        // Display the initial score
+        document.getElementById('scoreB').textContent = getVariable('scoreB');
     </script>
 </body>
 </html>
+
