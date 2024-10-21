@@ -24,6 +24,7 @@ function setVariable(key, value) {
 }
 
 // Function to update the scores and check for a winner
+<script>
 function updateScores() {
     const scoreA = getVariable('scoreA');
     const scoreB = getVariable('scoreB');
@@ -47,6 +48,8 @@ function updateScores() {
         console.error('Error:', error);
     });
 }
+
+
 </script>
 
 
