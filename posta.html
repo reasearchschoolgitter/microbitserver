@@ -8,17 +8,19 @@
 </head>
 <body>
     <h1>Team A</h1>
-    <p>Score A: <span id="scoreA"></span></p>
+    <p>Score A: <span id="scoreA">0</span></p>
     <p id="winner"></p>
     <script>
-        function updateScoreA() {
-            let scoreA = getVariable('scoreA');
-            scoreA--;
-            setVariable('scoreA', scoreA);
-            document.getElementById('scoreA').textContent = scoreA;
-            updateScores();
-        }
-        window.onload = updateScoreA;
+        document.addEventListener('DOMContentLoaded', () => {
+            function updateScoreA() {
+                let scoreA = getVariable('scoreA');
+                scoreA--;
+                setVariable('scoreA', scoreA);
+                document.getElementById('scoreA').textContent = scoreA;
+                updateScores();
+            }
+            updateScoreA();
+        });
     </script>
 </body>
 </html>
