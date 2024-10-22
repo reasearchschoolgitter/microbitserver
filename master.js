@@ -23,7 +23,7 @@ function updateScores() {
 
     console.log('Scores:', { scoreA, scoreB, total });
 
-    fetch('https://script.google.com/macros/s/AKfycbys4t5d60DJO8kfs4q8rkrjtgr9-11ezVwqZAFO5WGQWQjp3zzVjXgd31QbeohzemEP/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbw6UVIar-hz7-s_ETBfKSgfHS1IHgPPcpd2cyPGOFIHmiei_xzlic126WdFY5qltQI_/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
