@@ -10,7 +10,6 @@
     <h1>Team B</h1>
     <p>Score B: <span id="scoreB"></span></p>
     <p id="winner"></p>
-
     <script>
         function updateScoreB() {
             let scoreB = getVariable('scoreB');
@@ -19,9 +18,6 @@
             document.getElementById('scoreB').textContent = scoreB;
             updateScores();
         }
-
-        // Update score on page load
-        // i reset
         window.onload = updateScoreB;
     </script>
 </body>
