@@ -1,51 +1,58 @@
 let scores = { totalScore: 0 };
 
 function getTotalScore() {
-    return scores.totalScore || 0;
+  return scores.totalScore || 0;
 }
 
 function setTotalScore(value) {
-    scores.totalScore = value;
+  scores.totalScore = value;
 }
 
 function getVariable(key) {
-    return parseInt(localStorage.getItem(key), 10) || 0;
+  return parseInt(localStorage.getItem(key), 10) || 0;
 }
 
 function setVariable(key, value) {
-    localStorage.setItem(key, value);
+  localStorage.setItem(key, value);
 }
 
 function updateScores() {
-    const scoreA = getVariable('scoreA');
-    const scoreB = getVariable('scoreB');
-    const total = scoreB - scoreA;
+  const scoreA = getVariable('scoreA');
+  const scoreB = getVariable('scoreB');
+  const total = scoreB - scoreA;
 
-    console.log('Scores:', { scoreA, scoreB, total });
+  console.log('Scores:', { scoreA, scoreB, total });
 
-    fetch('https://script.google.com/macros/s/AKfycbxnJx8WA_bOfzSpPjAHD06Iqw5LeNHVjV2bBFKVkzbuW1TMWBanE9bywmEECLNlqrPZ/exec', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ teamAScore: scoreA, teamBScore: scoreB })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Received data:', data);
-        document.getElementById('totalScore').textContent = total;
-        document.getElementById('scoreA').textContent = scoreA;
-        document.getElementById('scoreB').textContent = scoreB;
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+  fetch('https://script.google.com/macros/s/AKfycbxnJx8WA_bOfzSpPjAHD06Iqw5LeNHVjV2bBFKVkzbuW1TMWBanE9bywmEECLNlqrPZ/exec', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*' // CORS fix
+    },
+    body: JSON.stringify({ teamAScore: scoreA, teamBScore: scoreB })
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Received data:', data);
+
+    if (data.error) {
+      console.error('Error:', data.error);
+      return;
+    }
+
+    document.getElementById('totalScore').textContent = total;
+    document.getElementById('scoreA').textContent = scoreA;
+    document.getElementById('scoreB').textContent = scoreB;
 
     if (total <= -100) {
-        document.getElementById('winner').textContent = 'Team A wins!';
+      document.getElementById('winner').textContent = 'Team A wins!';
     } else if (total >= 100) {
-        document.getElementById('winner').textContent = 'Team B wins!';
+      document.getElementById('winner').textContent = 'Team B wins!';
     } else {
-        document.getElementById('winner').textContent = '';
+      document.getElementById('winner').textContent = '';
     }
+  })
+  .catch(error => {
+    console.error('Fetch error:', error);
+  });
 }
