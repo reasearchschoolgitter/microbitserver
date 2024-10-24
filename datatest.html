@@ -4,13 +4,35 @@
 
 <h2>POST Request Form</h2>
 
-<form action="https://script.google.com/macros/s/AKfycbxetv7TooP7xsdPt1D6cpQzEoQ-F2bo02afedoZn31Yb3q3oBKrmKu7onB0dJ984OlR/exec" method="POST">
+<form id="myForm">
   <label for="fname">First name:</label><br>
   <input type="text" id="fname" name="fname"><br>
   <label for="lname">Last name:</label><br>
   <input type="text" id="lname" name="lname"><br><br>
   <input type="submit" value="Submit">
 </form> 
+
+<script>
+document.getElementById('myForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://script.google.com/macros/s/AKfycbxetv7TooP7xsdPt1D6cpQzEoQ-F2bo02afedoZn31Yb3q3oBKrmKu7onB0dJ984OlR/exec', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      console.log(xhr.responseText);
+      // Optionally handle response
+    } else if (xhr.readyState === 4) {
+      console.error('Error:', xhr.statusText);
+    }
+  };
+  var data = {
+    fname: document.getElementById('fname').value,
+    lname: document.getElementById('lname').value
+  };
+  xhr.send(JSON.stringify(data));
+});
+</script>
 
 </body>
 </html>
