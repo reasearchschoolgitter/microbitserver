@@ -20,7 +20,6 @@ function updateScores() {
   const scoreA = getVariable('scoreA');
   const scoreB = getVariable('scoreB');
   const total = scoreB - scoreA;
-
   console.log('Scores:', { scoreA, scoreB, total });
 
   fetch('https://script.google.com/macros/s/AKfycbzV6c-qswFD3FtbH2Yy0w8kWIzGLH2hTlGT6ZBwGOfbaJ7KVUIY7USZCOA3K9Inq4zh/exec', {
@@ -34,16 +33,13 @@ function updateScores() {
   .then(response => response.json())
   .then(data => {
     console.log('Received data:', data);
-
     if (data.error) {
       console.error('Error:', data.error);
       return;
     }
-
     document.getElementById('totalScore').textContent = total;
     document.getElementById('scoreA').textContent = scoreA;
     document.getElementById('scoreB').textContent = scoreB;
-
     if (total <= -100) {
       document.getElementById('winner').textContent = 'Team A wins!';
     } else if (total >= 100) {
@@ -56,3 +52,4 @@ function updateScores() {
     console.error('Fetch error:', error);
   });
 }
+
