@@ -4,7 +4,7 @@
 
 <h2>POST Request Form</h2>
 
-<form id="myForm" action="https://script.google.com/macros/s/AKfycbweuKCjT36wuxR89U1F6Ra8UJC3YcWU6UrvEe2ut5UA3a_ad7_SyhUDDXie21u2Ka6Z/exec" method="POST">
+<form id="myForm" action="https://script.google.com/macros/s/AKfycbzv9FQ9X-oqSkb8Gs1NL2ag9WAf8VO1nGWws65J6d7McCUmaDAHC-qw-eBr7NnQYJpx/exec" method="POST">
   <label for="fname">First name:</label><br>
   <input type="text" id="fname" name="fname"><br>
   <label for="lname">Last name:</label><br>
@@ -16,7 +16,7 @@
 document.getElementById('myForm').addEventListener('submit', function(event) {
   // No event.preventDefault() here
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'https://script.google.com/macros/s/AKfycbweuKCjT36wuxR89U1F6Ra8UJC3YcWU6UrvEe2ut5UA3a_ad7_SyhUDDXie21u2Ka6Z/exec', true);
+  xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzv9FQ9X-oqSkb8Gs1NL2ag9WAf8VO1nGWws65J6d7McCUmaDAHC-qw-eBr7NnQYJpx/exec', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
