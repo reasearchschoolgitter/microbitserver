@@ -22,7 +22,7 @@ function updateScores() {
   const total = scoreB - scoreA;
   console.log('Scores:', { scoreA, scoreB, total });
 
-  fetch('https://script.google.com/macros/s/AKfycbzV6c-qswFD3FtbH2Yy0w8kWIzGLH2hTlGT6ZBwGOfbaJ7KVUIY7USZCOA3K9Inq4zh/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbxOpwstBOuCsbUjGonQ3kQK_8mvH79pXf1V6bjlTCMMlqHGHTPfyG90a5XdBxUvmSZy/exec', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
