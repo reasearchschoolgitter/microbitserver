@@ -16,7 +16,7 @@
 document.getElementById('myForm').addEventListener('submit', function(event) {
   // No event.preventDefault() here
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'your-api-endpoint-here', true);
+  xhr.open('POST', 'https://script.google.com/macros/s/AKfycbxetv7TooP7xsdPt1D6cpQzEoQ-F2bo02afedoZn31Yb3q3oBKrmKu7onB0dJ984OlR/exec', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
