@@ -4,19 +4,17 @@
 
 <h2>POST Request Form</h2>
 
-<form id="myForm" action=" https://prd.activityfeed.ca-central-1.brightspace.com/api/v1/d2l:orgUnit:25719093/article/b608e1d9-9978-41b3-bc9b-d00b7e11491d/comment?order=asc"method="POST">
+<form id="myForm" action="https://script.google.com/macros/s/AKfycbzV6c-qswFD3FtbH2Yy0w8kWIzGLH2hTlGT6ZBwGOfbaJ7KVUIY7USZCOA3K9Inq4zh/exec" method="POST">
+<form id="myForm" action="https://script.google.com/macros/s/AKfycbwTzYfkiWo9sOqrdyTyhtc_iErQ-diIoftxa5OdbYnHjv5BgkGyycnHB6J0_TuX_aA/exec" method="POST">
   <label for="fname">First name:</label><br>
   <input type="text" id="fname" name="fname"><br>
   <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname"><br><br>
-  <input type="submit" value="Submit">
-</form> 
-
-<script>
+@@ -16,23 +16,23 @@
 document.getElementById('myForm').addEventListener('submit', function(event) {
   // No event.preventDefault() here
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'https://prd.activityfeed.ca-central-1.brightspace.com/api/v1/d2l:orgUnit:25719093/article/b608e1d9-9978-41b3-bc9b-d00b7e11491d/comment?order=asc', true);
+  xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzV6c-qswFD3FtbH2Yy0w8kWIzGLH2hTlGT6ZBwGOfbaJ7KVUIY7USZCOA3K9Inq4zh/exec', true);
+  xhr.open('POST', 'https://script.google.com/macros/s/AKfycbwTzYfkiWo9sOqrdyTyhtc_iErQ-diIoftxa5OdbYnHjv5BgkGyycnHB6J0_TuX_aA/exec', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
