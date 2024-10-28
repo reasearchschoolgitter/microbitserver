@@ -20,6 +20,7 @@ function updateScores() {
   const scoreA = getVariable('scoreA');
   const scoreB = getVariable('scoreB');
   const total = scoreB - scoreA;
+
   console.log('Scores:', { scoreA, scoreB, total });
 
   fetch('https://script.google.com/macros/s/AKfycbxOpwstBOuCsbUjGonQ3kQK_8mvH79pXf1V6bjlTCMMlqHGHTPfyG90a5XdBxUvmSZy/exec', {
@@ -53,3 +54,5 @@ function updateScores() {
   });
 }
 
+// Initial call to update scores
+updateScores();
