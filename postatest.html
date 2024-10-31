@@ -46,7 +46,7 @@
 
         function updateScoreA() {
             let scoreA = getVariable('scoreA') || 0;
-            scoreA--; // Increment score
+            scoreA++; // Increment score
             setVariable('scoreA', scoreA);
             document.getElementById('scoreA').textContent = scoreA;
             updateScores();
@@ -82,3 +82,4 @@
     <p id="winner"></p>
 </body>
 </html>
+
