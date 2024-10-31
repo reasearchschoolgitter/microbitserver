@@ -42,8 +42,7 @@ function sendTotalScore(totalScore) {
     }
   };
 
-  const data = { totalScore };
-  xhr.send(JSON.stringify(data));
+  xhr.send(JSON.stringify(totalScore));  // Send total score as a number
 }
 
 // Initial call to update scores
