@@ -29,7 +29,7 @@
             const total = scoreB - scoreA;
             setTotalScore(total); // Update total score
             console.log('Scores:', { scoreA, scoreB, total });
-            sendTotalScore(total); // Send total score automatically
+            sendTotalScore(scoreA, scoreB); // Send scores automatically
 
             document.getElementById('totalScore').textContent = total;
             document.getElementById('scoreA').textContent = scoreA;
@@ -46,17 +46,20 @@
 
         function updateScoreA() {
             let scoreA = getVariable('scoreA') || 0;
-            scoreA--; // Changed from increment to decrement
+            scoreA--; // Increment score
             setVariable('scoreA', scoreA);
             document.getElementById('scoreA').textContent = scoreA;
             updateScores();
         }
 
-        function sendTotalScore(totalScore) {
+        function sendTotalScore(teamAScore, teamBScore) {
             const url = 'https://script.google.com/macros/s/AKfycbxiRpC3VeDUynKRdXUBTnPT8sb5TGVIT3GPYcgddAn6XYECE1RKHd7nuvgBS21cEkq3/exec';
             fetch(url, {
                 method: 'POST',
-                body: JSON.stringify({ totalScore })
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ teamAScore, teamBScore })
             })
             .then(response => response.json())
             .then(data => console.log(data))
@@ -64,11 +67,10 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Initially set scoreA and scoreB
-            setVariable('scoreA', getVariable('scoreA'));
-            setVariable('scoreB', getVariable('scoreB'));
+            setVariable('scoreA', 0); // Initialize scoreA
+            setVariable('scoreB', 0); // Initialize scoreB
 
-            updateScoreA(); // Call function to update Score A
+            updateScoreA(); // Initial call to update Score A
         });
     </script>
 </head>
