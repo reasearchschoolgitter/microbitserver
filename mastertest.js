@@ -34,8 +34,7 @@ function updateScores() {
       document.getElementById('winner').textContent = '';
 function sendTotalScore(totalScore) {
   const xhr = new XMLHttpRequest();
-  const url = 'https://script.google.com/macros/s/AKfycbwTzYfkiWo9sOqrdyTyhtc_iErQ-diIoftxa5OdbYnHjv5BgkGyycnHB6J0_TuX_aA/exec';
-  xhr.open('POST', url, true);
+  const url = 'https://script.google.com/macros/s/AKfycbwcJ-wIPsevUO8TYoQfJk7q5-avbUkT5LfuE6d7yWFyvQJwhZEwC2D4O6631_jd0MPo/exec'
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
