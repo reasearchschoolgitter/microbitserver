@@ -46,7 +46,7 @@
 
         function updateScoreA() {
             let scoreA = getVariable('scoreA') || 0;
-            scoreA--;
+            scoreA--; // Changed from increment to decrement
             setVariable('scoreA', scoreA);
             document.getElementById('scoreA').textContent = scoreA;
             updateScores();
@@ -55,7 +55,7 @@
         function sendTotalScore(totalScore) {
             const xhr = new XMLHttpRequest();
             const url = 'https://script.google.com/macros/s/AKfycbww5gl_P26jCVw54CDG53wEeG7wC79s7h2OckBvKhJWy3A9cfWmM-EJ_lPMq6Y5PF33/exec';
-            xhr.open('POST', url);
+            xhr.open('POST', url, true); // 'true' for asynchronous
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
@@ -71,16 +71,21 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            updateScoreA();
+            // Initially set scoreA and scoreB
+            setVariable('scoreA', getVariable('scoreA'));
+            setVariable('scoreB', getVariable('scoreB'));
+
+            updateScoreA(); // Call function to update Score A
         });
     </script>
 </head>
 <body>
     <h1>Team A</h1>
     <p>Score A: <span id="scoreA">0</span></p>
-    <p id="winner"></p>
     <p>Total Score: <span id="totalScore">0</span></p>
     <p>Score B: <span id="scoreB">0</span></p>
+    <p id="winner"></p>
 </body>
 </html>
+
 
