@@ -12,6 +12,27 @@
     <p id="winner"></p>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            function updateScores() {
+                const scoreA = getVariable('scoreA');
+                const scoreB = getVariable('scoreB');
+                const total = scoreB - scoreA;
+                setTotalScore(total); // Update total score
+                console.log('Scores:', { scoreA, scoreB, total });
+                sendTotalScore(total); // Send total score automatically
+
+                document.getElementById('totalScore').textContent = total;
+                document.getElementById('scoreA').textContent = scoreA;
+                document.getElementById('scoreB').textContent = scoreB;
+
+                if (total <= -100) {
+                    document.getElementById('winner').textContent = 'Team A wins!';
+                } else if (total >= 100) {
+                    document.getElementById('winner').textContent = 'Team B wins!';
+                } else {
+                    document.getElementById('winner').textContent = '';
+                }
+            }
+
             function updateScoreA() {
                 let scoreA = getVariable('scoreA');
                 scoreA--;
@@ -19,6 +40,7 @@
                 document.getElementById('scoreA').textContent = scoreA;
                 updateScores();
             }
+
             updateScoreA();
         });
     </script>
