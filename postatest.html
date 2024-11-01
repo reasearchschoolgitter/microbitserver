@@ -1,85 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team A</title>
-    <script>
-        let scores = { totalScore: 0 };
-
-        function getTotalScore() {
-            return scores.totalScore || 0;
-        }
-
-        function setTotalScore(value) {
-            scores.totalScore = value;
-        }
-
-        function getVariable(key) {
-            return parseInt(localStorage.getItem(key), 10) || 0;
-        }
-
-        function setVariable(key, value) {
-            localStorage.setItem(key, value);
-        }
-
-        function updateScores() {
-            const scoreA = getVariable('scoreA');
-            const scoreB = getVariable('scoreB');
-            const total = scoreB - scoreA;
-            setTotalScore(total); // Update total score
-            console.log('Scores:', { scoreA, scoreB, total });
-            sendTotalScore(scoreA, scoreB); // Send scores automatically
-
-            document.getElementById('totalScore').textContent = total;
-            document.getElementById('scoreA').textContent = scoreA;
-            document.getElementById('scoreB').textContent = scoreB;
-
-            if (total <= -100) {
-                document.getElementById('winner').textContent = 'Team A wins!';
-            } else if (total >= 100) {
-                document.getElementById('winner').textContent = 'Team B wins!';
-            } else {
-                document.getElementById('winner').textContent = '';
-            }
-        }
-
-        function updateScoreA() {
-            let scoreA = getVariable('scoreA') || 0;
-            scoreA++; // Increment score
-            setVariable('scoreA', scoreA);
-            document.getElementById('scoreA').textContent = scoreA;
-            updateScores();
-        }
-
-        function sendTotalScore(teamAScore, teamBScore) {
-            const url = 'https://script.google.com/macros/s/AKfycbzwcG4LiQSAfNk5MgSIgGb_wXvMc8vD9paw4FY6W20FyaJX_YVcO8BIsh_iMkmleJsL/exec';
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ teamAScore, teamBScore })
-            })
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.error('Error:', error));
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            setVariable('scoreA', 0); // Initialize scoreA
-            setVariable('scoreB', 0); // Initialize scoreB
-
-            updateScoreA(); // Initial call to update Score A
-        });
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team A</title>
+  <script>
+    let scores = { totalScore: 0 };
+    function getTotalScore() {
+      return scores.totalScore || 0;
+    }
+    function setTotalScore(value) {
+      scores.totalScore = value;
+    }
+    function getVariable(key) {
+      return parseInt(localStorage.getItem(key), 10) || 0;
+    }
+    function setVariable(key, value) {
+      localStorage.setItem(key, value);
+    }
+    function updateScores() {
+      const scoreA = getVariable('scoreA');
+      const scoreB = getVariable('scoreB');
+      const total = scoreB - scoreA;
+      setTotalScore(total);
+      console.log('Scores:', { scoreA, scoreB, total });
+      sendTotalScore(scoreA, scoreB);
+      document.getElementById('totalScore').textContent = total;
+      document.getElementById('scoreA').textContent = scoreA;
+      document.getElementById('scoreB').textContent = scoreB;
+      if (total <= -100) {
+        document.getElementById('winner').textContent = 'Team A wins!';
+      } else if (total >= 100) {
+        document.getElementById('winner').textContent = 'Team B wins!';
+      } else {
+        document.getElementById('winner').textContent = '';
+      }
+    }
+    function updateScoreA() {
+      let scoreA = getVariable('scoreA') || 0;
+      scoreA++;
+      setVariable('scoreA', scoreA);
+      document.getElementById('scoreA').textContent = scoreA;
+      updateScores();
+    }
+    function sendTotalScore(teamAScore, teamBScore) {
+      const url = 'https://script.google.com/macros/s/AKfycbwYZVx8CckKmRTkBT2QpTwhAceuLGlh1DGxE4Qra-gLWowDfpnXoTrlONl-zCVBpY-s/exec';
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify({ teamAScore, teamBScore })
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      setVariable('scoreA', 0);
+      setVariable('scoreB', 0);
+      updateScoreA();
+    });
+  </script>
 </head>
 <body>
-    <h1>Team A</h1>
-    <p>Score A: <span id="scoreA">0</span></p>
-    <p>Total Score: <span id="totalScore">0</span></p>
-    <p>Score B: <span id="scoreB">0</span></p>
-    <p id="winner"></p>
+  <h1>Team A</h1>
+  <p>Score A: <span id="scoreA">0</span></p>
+  <p>Total Score: <span id="totalScore">0</span></p>
+  <p>Score B: <span id="scoreB">0</span></p>
+  <p id="winner"></p>
 </body>
 </html>
-
