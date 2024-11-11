@@ -2,13 +2,13 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.0   | :supported:                |
+| 1.0   | :not supported:|
+| 1.1   | :supported:|
+
 
 ## Reporting a Vulnerability
 
-report a vulnerability i will get to fixing it in 120 days or less. Put the version the level of vulnerable code. And thats it!
+report a vulnerability I will get to fixing it in 120 days or less. Put the version and the level of vulnerable code. And that's it!
